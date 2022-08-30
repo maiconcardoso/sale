@@ -13,7 +13,7 @@ import com.api.sale.repositories.ClientRepository;
 public class SaleApplication {
 
 	@Bean
-	private CommandLineRunner run(@Autowired ClientRepository clientRepository) {
+	CommandLineRunner run(ClientRepository clientRepository) {
 		return args -> {
 			Client client = Client.builder().cpf("00000000000").name("Fulano de tal").build();
 			clientRepository.save(client);
@@ -23,4 +23,5 @@ public class SaleApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SaleApplication.class, args);
 	}
+
 }
