@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,11 @@ public class Client implements Serializable{
 
     @Column(name = "registary_date")
     private LocalDate registaryDate;
+
+    @PrePersist
+    private void prePersist() {
+        setRegistaryDate(LocalDate.now()); 
+    }
 
     
 }
