@@ -1,7 +1,10 @@
 package com.api.sale.controllers;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,11 @@ import lombok.RequiredArgsConstructor;
 public class ClientController {
 
     private final ClientService service;
+
+    @GetMapping
+    public ResponseEntity<List<Client>> findAll() {
+        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody Client client) {
