@@ -19,8 +19,14 @@ public class ClientService {
         return repository.findAll();
     }
 
+    public Client findById(Integer id) {
+        return repository.findById(id).orElseThrow();
+    }
+
     public Client save(Client client) {
         return repository.save(client);
     }
+
+
     
 }
