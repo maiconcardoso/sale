@@ -27,6 +27,17 @@ public class ClientService {
         return repository.save(client);
     }
 
+    public Client update(Integer id, Client client) {
+        findById(id);
+        Client.builder().cpf(client.getCpf()).name(client.getName());
+        return repository.save(client);
+    }
+
+    public void delete(Integer id) {
+        Client clientForDeleted = findById(id);
+        repository.delete(clientForDeleted);
+    }
+
 
     
 }
