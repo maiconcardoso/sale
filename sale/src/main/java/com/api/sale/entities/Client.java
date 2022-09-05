@@ -9,6 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,9 +31,12 @@ public class Client implements Serializable{
     private Integer id;
 
     @Column(nullable = false, length = 170)
+    @NotEmpty(message = "The client name cannot be empty")
     private String name;
 
     @Column(nullable = false, length = 20, unique = true)
+    @NotNull
+    @CPF
     private String cpf;
 
     @Column(name = "registary_date")
