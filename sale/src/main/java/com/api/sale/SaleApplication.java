@@ -15,7 +15,7 @@ public class SaleApplication {
 	@Bean
 	CommandLineRunner run(ClientRepository clientRepository) {
 		return args -> {
-			Client client = Client.builder().cpf("00000000000").name("Fulano de tal").build();
+			Client client = Client.builder().cpf("90821388088").name("Fulano de tal").build();
 			clientRepository.save(client);
 		};
 	}
