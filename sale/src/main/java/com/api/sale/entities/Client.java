@@ -31,12 +31,12 @@ public class Client implements Serializable{
     private Integer id;
 
     @Column(nullable = false, length = 170)
-    @NotEmpty(message = "The client name cannot be empty")
+    @NotEmpty(message = "{campo.nome.obrigatorio}")
     private String name;
 
     @Column(nullable = false, length = 20, unique = true)
-    @NotNull
-    @CPF
+    @NotNull(message = "{campo.cpf.obrigatorio}")
+    @CPF(message = "{campo.cpf.invalido}")
     private String cpf;
 
     @Column(name = "registary_date")
