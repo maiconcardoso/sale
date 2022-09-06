@@ -2,6 +2,8 @@ package com.api.sale.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +36,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<Client> save(@RequestBody Client client) {
+    public ResponseEntity<Client> save(@RequestBody @Valid Client client) {
         return new ResponseEntity<Client>(service.save(client), HttpStatus.CREATED);
     }
     
