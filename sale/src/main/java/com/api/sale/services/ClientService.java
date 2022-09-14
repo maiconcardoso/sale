@@ -2,7 +2,9 @@ package com.api.sale.services;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.api.sale.entities.Client;
 import com.api.sale.repositories.ClientRepository;
@@ -20,7 +22,7 @@ public class ClientService {
     }
 
     public Client findById(Integer id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
     }
 
     public Client save(Client client) {
