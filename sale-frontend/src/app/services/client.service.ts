@@ -13,7 +13,7 @@ export class ClientService {
 
   constructor( private http: HttpClient ) { }
 
-  salvar( client: Client ): Observable<Client>{
+  save( client: Client ): Observable<Client>{
     return this.http.post<Client>(`${this.baseUrl}`, client);
   }
 }
