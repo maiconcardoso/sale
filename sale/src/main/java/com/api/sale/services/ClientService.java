@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ClientService {
-    
+
     private final ClientRepository repository;
 
     public List<Client> findAll() {
@@ -22,7 +22,8 @@ public class ClientService {
     }
 
     public Client findById(Integer id) {
-        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado") );
+        return repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
     }
 
     public Client save(Client client) {
@@ -40,6 +41,4 @@ public class ClientService {
         repository.delete(clientForDeleted);
     }
 
-
-    
 }
