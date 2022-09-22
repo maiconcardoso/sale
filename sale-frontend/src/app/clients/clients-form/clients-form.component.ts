@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 import { Client } from '../clients';
 
@@ -13,7 +14,7 @@ export class ClientsFormComponent implements OnInit {
   success: boolean = false;
   errors: string[] = [];
 
-  constructor( private service: ClientService ) {
+  constructor( private service: ClientService, private router: Router ) {
     this.client = new Client();
    }
 
@@ -30,6 +31,11 @@ export class ClientsFormComponent implements OnInit {
       this.success = false;
       this.errors = errorResponse.error.errors;
     })
+  }
+
+
+  backToList(){
+    this.router.navigate(['/clients-list'])
   }
 
 }
