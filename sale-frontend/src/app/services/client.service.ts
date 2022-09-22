@@ -20,4 +20,14 @@ export class ClientService {
   findAll() : Observable<Client[]> {
     return this.http.get<Client[]>(this.baseUrl);
   }
+
+  findById(id: number) : Observable<Client> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Client>(url);
+  }
+
+  update(client: Client) : Observable<Client> {
+    const url = `${this.baseUrl}/${client.id}`;
+    return this.http.put<Client>(url, client);
+  }
 }

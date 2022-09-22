@@ -24,4 +24,8 @@ export class ClientsListComponent implements OnInit {
     this.router.navigate(['/clients-form']);
   }
 
+  udpateClient(){
+    //this.router.navigate([`/clients-form/${client.id}`]);
+  }
+
 }
