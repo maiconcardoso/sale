@@ -29,15 +29,27 @@ export class ClientsFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.client).subscribe(response => {
-      this.client = response;
-      this.success = true;
-      this.errors = [];
-      this.client = response;
-    }, errorResponse => {
-      this.success = false;
-      this.errors = errorResponse.error.errors;
-    })
+    if (this.client.id) {
+      this.service.update(this.client).subscribe(response => {
+        this.client = response;
+        this.success = true;
+        this.errors = [];
+      }, errorResponse => {
+        this.errors = ['Erro ao atualizar o cliente']
+      })
+    }
+
+    if (!this.client.id) {
+      this.service.save(this.client).subscribe(response => {
+        this.client = response;
+        this.success = true;
+        this.errors = [];
+        this.client = response;
+      }, errorResponse => {
+        this.success = false;
+        this.errors = errorResponse.error.errors;
+      })
+    }
   }
 
 
