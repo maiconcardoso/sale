@@ -30,4 +30,8 @@ export class ClientService {
     const url = `${this.baseUrl}/${client.id}`;
     return this.http.put<Client>(url, client);
   }
+  delete(client: Client) : Observable<Client> {
+    const url = `${this.baseUrl}/${client.id}`;
+    return this.http.delete<Client>(url);
+  }
 }
