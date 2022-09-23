@@ -1,6 +1,7 @@
 package com.api.sale.entities;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,12 @@ public class Labor {
     @JoinColumn(name = "id_client")
     private Client client;
 
+
+    @Column(name = "amount")
     private BigDecimal amount;
+
+    @Column(name = "labor_date")
+    private LocalDate date;
 
     
 }
