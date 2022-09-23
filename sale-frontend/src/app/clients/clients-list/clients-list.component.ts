@@ -11,6 +11,9 @@ import { Client } from '../clients';
 export class ClientsListComponent implements OnInit {
 
   clients: Client[] = [];
+  selectClient: Client = new Client();
+  successMessage: string = '';
+  errorMessage: string = '';
 
   constructor( private service: ClientService, private router: Router ) { }
 
@@ -24,8 +27,15 @@ export class ClientsListComponent implements OnInit {
     this.router.navigate(['/clients-form']);
   }
 
-  udpateClient(){
-    //this.router.navigate([`/clients-form/${client.id}`]);
+  openModalClientDelete(client: Client) {
+    this.selectClient = client;
+  }
+
+  deleteClient() {
+    this.service.delete(this.selectClient).subscribe(response =>  {
+      this.successMessage = "Cliente deletado com sucesso!",
+      this.ngOnInit()
+    }, error => this.errorMessage = "Erro ao tentar deletar o cliente.") 
   }
 
 }
