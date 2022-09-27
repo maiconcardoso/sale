@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ClientsModule } from './clients/clients.module';
 import { ClientService } from './services/client.service';
 import { HttpClientModule } from '@angular/common/http'
+import { LaborModule } from './labor/labor.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     TemplateModule,
     ClientsModule,
-    HttpClientModule
+    HttpClientModule,
+    LaborModule
   ],
   providers: [
     ClientService
