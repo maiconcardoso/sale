@@ -2,6 +2,7 @@ package com.api.sale.services;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -29,4 +30,8 @@ public class LaborService {
         labor.setDate(date);
         return repository.save(labor);
     } 
+
+    public List<Labor> findByClientNameAndDate(String name, Integer month) {
+        return repository.findByClientNameAndDate(name, month);
+    }
 }
