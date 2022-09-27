@@ -1,7 +1,6 @@
 package com.api.sale.dtos;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

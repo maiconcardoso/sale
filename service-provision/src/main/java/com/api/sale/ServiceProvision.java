@@ -1,6 +1,5 @@
 package com.api.sale;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.springframework.boot.CommandLineRunner;
