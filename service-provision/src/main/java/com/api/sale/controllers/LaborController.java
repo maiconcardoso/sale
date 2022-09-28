@@ -2,6 +2,8 @@ package com.api.sale.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,7 @@ public class LaborController {
     private final LaborService laborService;
 
     @PostMapping
-    public ResponseEntity<Labor> save(@RequestBody LaborDto laborDto) {
+    public ResponseEntity<Labor> save(@RequestBody @Valid LaborDto laborDto) {
         return new ResponseEntity<>(laborService.save(laborDto), HttpStatus.OK);
     }
 
