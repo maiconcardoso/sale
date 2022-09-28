@@ -24,6 +24,7 @@ export class LaborFormComponent implements OnInit {
     this.clientService.findAll().subscribe((response) => {
       this.clients = response;
     })
+    
   }
 
   onSubmit() {
