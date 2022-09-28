@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -31,12 +32,10 @@ public class Labor {
     private Integer id;
 
     @Column(length = 255)
-    @NotEmpty(message = "The Descrition cannot be empty")
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "id_client")
-    @NotEmpty(message = "The Name Client cannot be empty")
     private Client client;
 
 
