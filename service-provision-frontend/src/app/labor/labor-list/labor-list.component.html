@@ -1,1 +1,30 @@
-<p>labor-list works!</p>
+<h1 class="mt-4">Serviço Prestado</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consultar</li>
+</ol>
+
+<div class="container">
+    <form #searchClientForm="ngForm" (submit)="searchClient()">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="name">Nome Cliente</label>
+                <input type="text" class="form-control" [(ngModel)]="clientName" name="clientName">
+            </div>
+            <div class="col-md-3">
+                <label for="name">Mês</label>
+                <select [(ngModel)]="month" class="form-control" name="month">
+                    <option>Selecione...</option>
+                    <option *ngFor="let month of months" [value]="month">
+                        {{ month }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button style="margin-top: 1.3em;" class="btn btn-primary">Consultar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
