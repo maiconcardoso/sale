@@ -10,17 +10,25 @@ import { ClientsModule } from './clients/clients.module';
 import { ClientService } from './services/client.service';
 import { HttpClientModule } from '@angular/common/http'
 import { LaborModule } from './labor/labor.module';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     TemplateModule,
     ClientsModule,
     HttpClientModule,
