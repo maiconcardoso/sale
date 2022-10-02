@@ -26,7 +26,7 @@ export class ClientsListComponent implements OnInit {
   }
 
   saveClient(){
-    this.router.navigate(['/clients-form']);
+    this.router.navigate(['/clients/form']);
   }
 
   openModalClientDelete(client: Client) {
