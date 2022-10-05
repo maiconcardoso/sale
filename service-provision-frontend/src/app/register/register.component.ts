@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-register',
@@ -8,24 +10,23 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  username: string;
-  password: string;
-  samePassword: string;
-  passwordError: boolean;
+  // samePassword: string;
+  // messageError: boolean;
+  user: User;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) {
+    this.user = new User();
+   }
 
   ngOnInit(): void {
   }
 
   onSubimit(){
-    if (this.password != this.samePassword) {
-      this.passwordError = true;
-    } else {
-      console.log(`user: ${this.username}, password: ${this.password}`)
-      this.passwordError = false;
+    this.userService.save(this.user).subscribe(response => {
+      this.user = response;
+      // this.messageError = false;
       this.router.navigate(['/login'])
-    }
+    })
   }
 
 }
