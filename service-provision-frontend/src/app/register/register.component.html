@@ -1,47 +1,49 @@
-<div id="layoutAuthentication">
-    <div id="layoutAuthentication_content">
-        <main>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-5">
-                        <div class="card shadow-lg border-0 rounded-lg mt-5">
-                            <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">
-                                    Cadastrar novo Usuário
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <!-- <div class="alert alert-danger" *ngIf="messageError">
-                                    Senhas não compatíveis.
-                                </div> -->
-                                <form #loginForm="ngForm" (submit)="onSubimit()">
-                                    <div class="form-group">
-                                        <label class="small mb-1">Login</label>
-                                        <input class="form-control py-4" placeholder="Digite seu usuario" type="text"
-                                            name="username" [(ngModel)]="user.username">
+<div class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">
+                                        Cadastrar novo Usuário
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                                        {{ error }}
                                     </div>
-                                    <div class="form-group">
-                                        <label class="small mb-1">Senha</label>
-                                        <input class="form-control py-4" placeholder="Digite sua senha" type="password"
-                                            name="password" [(ngModel)]="user.password">
-                                    </div>
-
-                                    <!-- <div class="form-group">
-                                        <label class="small mb-1">Repita a senha</label>
-                                        <input class="form-control py-4" placeholder="Digite sua senha novamente" type="password"
-                                           name="samePassword" (ngModel)="samePassword" >
-                                    </div> -->
-
-                                    <div class="form-group ">
-                                        <button type="submit" class="btn btn-primary">Enviar</button>
-                                        <button type="button" routerLink="/login" class="btn btn-danger ml-2">Cancelar</button>
-                                    </div>
-                                </form>
+                                    <form #loginForm="ngForm" (submit)="onSubimit()">
+                                        <div class="form-group">
+                                            <label class="small mb-1">Login</label>
+                                            <input class="form-control py-4" placeholder="Digite seu usuario" type="text"
+                                                name="username" [(ngModel)]="user.username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="small mb-1">Senha</label>
+                                            <input class="form-control py-4" placeholder="Digite sua senha" type="password"
+                                                name="password" [(ngModel)]="user.password">
+                                        </div>
+    
+                                        <!-- <div class="form-group">
+                                            <label class="small mb-1">Repita a senha</label>
+                                            <input class="form-control py-4" placeholder="Digite sua senha novamente" type="password"
+                                               name="samePassword" (ngModel)="samePassword" >
+                                        </div> -->
+    
+                                        <div class="form-group ">
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                            <button type="button" routerLink="/login" class="btn btn-danger ml-2">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
 </div>
