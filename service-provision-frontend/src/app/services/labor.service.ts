@@ -11,7 +11,7 @@ import { LaborProvision } from '../labor/labor-list/labor-provision';
 })
 export class LaborService {
 
-  baseURL: string = environment.URL + "/labors"
+  baseURL: string = environment.URL + "/api/labors"
 
   constructor(private http: HttpClient) { }
 
