@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   // samePassword: string;
   // messageError: boolean;
   user: User;
+  errors: string[] = [];
 
   constructor(private router: Router, private userService: UserService) {
     this.user = new User();
@@ -24,8 +25,9 @@ export class RegisterComponent implements OnInit {
   onSubimit(){
     this.userService.save(this.user).subscribe(response => {
       this.user = response;
-      // this.messageError = false;
       this.router.navigate(['/login'])
+    }, errorResponse => {
+      this.errors = errorResponse.error.errors;
     })
   }
 
