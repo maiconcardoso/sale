@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../guards/auth.guard';
 import { LayoutComponent } from '../layout/layout.component';
 import { LaborFormComponent } from './labor-form/labor-form.component';
 import { LaborListComponent } from './labor-list/labor-list.component';
@@ -9,7 +10,7 @@ const routes: Routes = [
     { path: 'form', component: LaborFormComponent },
     { path: 'list', component: LaborListComponent },
     { path: '', redirectTo: '/labors/list', pathMatch: 'full' }
-  ] }
+  ], canActivate: [AuthGuard] }
 ];
 
 @NgModule({
