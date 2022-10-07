@@ -17,6 +17,19 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  public logout() {
+    localStorage.removeItem('access_token');
+  }
+
+  public getUserAuthenticated() {
+    const token = this.getToken();
+    if (token) {
+      const userName = this.jwtHelper.decodeToken(token).user_name;
+      return userName;
+    }
+    return null;
+  }
+
   public getToken() {
     const tokenString = localStorage.getItem('access_token');
     if (tokenString) {
