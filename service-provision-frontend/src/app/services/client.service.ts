@@ -14,11 +14,23 @@ export class ClientService {
   constructor( private http: HttpClient ) { }
 
   save( client: Client ): Observable<Client>{
-    return this.http.post<Client>(`${this.baseUrl}`, client);
+    const tokenString = localStorage.getItem('access_token');
+    //@ts-ignore
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.access_token
+    }
+    return this.http.post<Client>(`${this.baseUrl}`, client, { headers });
   }
 
   findAll() : Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl);
+    const tokenString = localStorage.getItem('access_token');
+    //@ts-ignore
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.access_token
+    }
+    return this.http.get<Client[]>(this.baseUrl, { headers });
   }
 
   findById(id: number) : Observable<Client> {
